@@ -38,6 +38,13 @@ Route::delete('/task/{id}', function ($id) {
     //
 });
 
+Route::get('/login', function() {
+    return view('/auth/login');
+});
+
+Route::get('/register', function() {
+    return view('/auth/register');
+});
 
 
 Route::post('/task', function (Request $request) {
@@ -59,11 +66,11 @@ Route::post('/task', function (Request $request) {
 });
 
 
-    /**
-     * Delete Task
-     */
-    Route::delete('/task/{id}', function ($id) {
-        Task::findOrFail($id)->delete();
+/**
+ * Delete Task
+ */
+Route::delete('/task/{id}', function ($id) {
+    Task::findOrFail($id)->delete();
 
-        return redirect('/');
-    });
+    return redirect('/');
+});
